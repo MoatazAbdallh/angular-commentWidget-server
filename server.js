@@ -116,5 +116,20 @@ app.post('/get-comment-list', function (req, res) {
         });
     });
 });
+app.post('/increment-recommendation', function (req, res) {
+    commentService.incrementRecommendation(req.body).then(function (result) {
+        res.json({
+            errorCode: 0,
+            errorMessage: "",
+            data: result
+        });
+    }, function (err) {
+        res.json({
+            errorCode: 1,
+            errorMessage: err.message,
+            data: null
+        });
+    });
+});
 app.listen(port);
 console.log('Magic happens at http://localhost:' + port);

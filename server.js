@@ -20,16 +20,16 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var base64 = require('base-64');
-var config = require('./config');
 
 var commentService = require('./services/comment-app');
 
 //depending on Config Vars in Heroku for production only else depend on config.js
 if (process.env.NODE_ENV == "production")
     mongoose.connect(process.env.MONGODB_URI);
-else
+else{
+    var config = require('./config');
     mongoose.connect(config.database);
+}
 
 
 var db = mongoose.connection;

@@ -90,5 +90,23 @@ app.post('/post-comment', function (req, res) {
     });
 });
 
+app.post('/get-app-info', function (req, res) {
+    commentService.getAppInfo(req.body).then(function (result) {
+        res.json({
+            errorCode: 0,
+            errorMessage: "",
+            data: {
+                comment: result
+            }
+        });
+    }, function (err) {
+        res.json({
+            errorCode: 1,
+            errorMessage: err.message,
+            data: null
+        });
+    });
+});
+
 app.listen(port);
 console.log('Magic happens at http://localhost:' + port);

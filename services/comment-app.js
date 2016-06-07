@@ -5,6 +5,19 @@
     var App = require('../models/app');
     var random = require("random-js")();
 
+    var getAppInfo = function (data) {
+        var defered = $q.defer();
+        var selectedApp = App.findOne({
+            app_id:data.app_id
+        },function (err, app) {
+            if (err)
+                defered.reject(err);
+            else
+                defered.resolve(app)
+        });
+        return defered.promise;
+    };
+
     var createApp = function (data) {
         var defered = $q.defer();
         var newApp = App({
@@ -56,6 +69,7 @@
 
     module.exports = {
         createApp: createApp,
-        postComment: createComment
+        postComment: createComment,
+        getAppInfo: getAppInfo
     }
 })();

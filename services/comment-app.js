@@ -8,13 +8,29 @@
     var getAppInfo = function (data) {
         var defered = $q.defer();
         var selectedApp = App.findOne({
-            app_id:data.app_id
-        },function (err, app) {
+            app_id: data.app_id
+        }, function (err, app) {
             if (err)
                 defered.reject(err);
             else
                 defered.resolve(app._doc)
         });
+        return defered.promise;
+    };
+
+    var getCommentList = function (data) {
+        var defered = $q.defer();
+        var selectedApp = getAppInfo(data).then(function (result) {
+            var commentList = Comment.find({
+                _id: {$in: result.comment_ids}
+            }, function (err, comment_list) {
+                if (err)
+                    defered.reject(err);
+                else
+                    defered.resolve(comment_list)
+            });
+        });
+
         return defered.promise;
     };
 
@@ -32,7 +48,7 @@
             if (err)
                 defered.reject(err);
             else
-            defered.resolve(model._doc)
+                defered.resolve(model._doc)
         });
         return defered.promise;
 
@@ -70,6 +86,7 @@
     module.exports = {
         createApp: createApp,
         postComment: createComment,
-        getAppInfo: getAppInfo
+        getAppInfo: getAppInfo,
+        getCommentList: getCommentList
     }
 })();

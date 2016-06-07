@@ -10,7 +10,7 @@
     "random-js": "^1.0.8"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "NODE_ENV=production node server.js"
   },
   "description": "Server Side for angular Comment Widget Using NodeJs & MongoDB",
   "version": "1.0.0",

@@ -1,0 +1,25 @@
+{
+  "name": "angular-comment-widget-server",
+  "main": "server.js",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.0.4",
+    "mongodb": "^2.0.40",
+    "mongoose": "^4.1.2",
+    "morgan": "^1.6.1",
+    "q": "^1.4.1",
+    "random-js": "^1.0.8"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Server Side for angular Comment Widget Using NodeJs & MongoDB",
+  "version": "1.0.0",
+  "keywords": [
+    "angular-commentWidget"
+  ],
+  "author": "Moataz Hammous",
+  "license": "MIT"
+}

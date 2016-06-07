@@ -60,9 +60,7 @@ app.post('/create-comment-app', function (req, res) {
         res.json({
             errorCode: 0,
             errorMessage: "",
-            data: {
-                comment: result
-            }
+            data: result
         });
     }, function (err) {
         res.json({
@@ -77,9 +75,7 @@ app.post('/post-comment', function (req, res) {
         res.json({
             errorCode: 0,
             errorMessage: "",
-            data: {
-                comment: result
-            }
+            data: result
         });
     }, function (err) {
         res.json({
@@ -95,9 +91,7 @@ app.post('/get-app-info', function (req, res) {
         res.json({
             errorCode: 0,
             errorMessage: "",
-            data: {
-                comment: result
-            }
+            data: result
         });
     }, function (err) {
         res.json({

@@ -13,7 +13,7 @@
             if (err)
                 defered.reject(err);
             else
-                defered.resolve(app)
+                defered.resolve(app._doc)
         });
         return defered.promise;
     };

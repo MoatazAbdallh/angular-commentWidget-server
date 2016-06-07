@@ -116,12 +116,30 @@
         });
         return defered.promise;
     };
+    /**
+     * Represents updating points_up and points_down for comment item.
+     * @function
+     * @param {object} data - Contains comment id & points count.
+     */
+    var updateCommentItem = function (data) {
+        var defered = $q.defer();
 
+        var selectedComment = Comment.update({
+            _id: data.comment_id
+        }, {points_up: data.points_up, points_down: data.points_down}, function (err, app) {
+            if (err)
+                defered.reject(err);
+            else
+                defered.resolve(app._doc)
+        });
+        return defered.promise;
+    };
     module.exports = {
         createApp: createApp,
         postComment: createComment,
         getAppInfo: getAppInfo,
         getCommentList: getCommentList,
-        incrementRecommendation: incrementRecommendation
+        incrementRecommendation: incrementRecommendation,
+        updateCommentItem: updateCommentItem
     }
 })();

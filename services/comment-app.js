@@ -125,7 +125,7 @@
         var defered = $q.defer();
 
         var selectedComment = Comment.update({
-            _id: data.comment_id
+            _id: data._id
         }, {points_up: data.points_up, points_down: data.points_down}, function (err, app) {
             if (err)
                 defered.reject(err);

@@ -132,7 +132,7 @@ app.post('/increment-recommendation', function (req, res) {
     });
 });
 app.post('/updateCommentItem', function (req, res) {
-    commentService.incrementRecommendation(req.body).then(function (result) {
+    commentService.updateCommentItem(req.body).then(function (result) {
         res.json({
             errorCode: 0,
             errorMessage: "",
